@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RAVEN7</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 1s ease-in-out both;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-pink-200 via-red-300 to-yellow-200 text-gray-900 font-sans">
+
+  <header class="bg-pink-500 shadow-xl p-8 text-center">
+    <img src="https://i.postimg.cc/RV87T13X/PF-Anissa-El-Moussaoui-Boussarghin-1.png" alt="" class="w-24 h-24 mx-auto mb-4 rounded-full shadow-lg object-cover" />
+    <h1 class="text-5xl font-extrabold tracking-widest text-white">RAVEN 7</h1>
+    <p class="mt-3 text-lg text-yellow-100">Clan Élite de Free Fire</p>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-6">
+    <section class="flex flex-col md:flex-row items-center gap-6 my-10">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-pink-700 mb-4">¿Quiénes somos?</h2>
+        <p class="text-lg leading-relaxed">
+          Somos un clan que juega compes vividos (competitivos). Tenemos nuestras reglas de cómo jugar vividamente, las cuales se comparten en nuestro grupo de WhatsApp.
+        </p>
+      </div>
+      <div class="flex-1">
+        <img src="https://cdn.pixabay.com/photo/2020/03/04/16/34/esports-4901273_960_720.jpg" alt="" class="rounded-2xl shadow-2xl animate-fade-in" />
+      </div>
+    </section>
+
+    <section class="text-center my-16">
+      <h2 class="text-3xl font-bold text-pink-700 mb-4">Reglas para entrar al clan</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-lg animate-fade-in">
+          <h3 class="text-xl font-semibold mb-2">1. Elige un color</h3>
+          <p>Selecciona tu color favorito del arcoíris para comenzar el proceso.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg animate-fade-in">
+          <h3 class="text-xl font-semibold mb-2">2. Llena el cuestionario</h3>
+          <p>Completa el formulario con tus datos reales y tu rol dentro del juego.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg animate-fade-in">
+          <h3 class="text-xl font-semibold mb-2">3. Espera respuesta</h3>
+          <p>Un líder o decano se comunicará contigo vía WhatsApp o el medio que hayas dado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-12 text-center">
+      <h2 class="text-3xl font-bold text-pink-700 mb-6">Únete al Clan</h2>
+      <p class="text-lg mt-4">¿Tienes lo que se necesita para unirte a la élite?</p>
+      <div class="my-4">
+        <p class="text-lg">Contáctanos vía:</p>
+        <p><strong>Correo:</strong> <a href="mailto:raven7ff@gmail.com" class="text-blue-600">raven7ff@gmail.com</a></p>
+      </div>
+      <p class="text-pink-700 font-medium mb-4">Selecciona tu color favorito del arcoíris para registrarte:</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mt-10 animate-fade-in">
+        <button onclick="abrirFormulario('Rojo')" class="bg-red-500 text-white py-2 rounded shadow-md hover:bg-red-600">Rojo</button>
+        <button onclick="abrirFormulario('Naranja')" class="bg-orange-400 text-white py-2 rounded shadow-md hover:bg-orange-500">Naranja</button>
+        <button onclick="abrirFormulario('Amarillo')" class="bg-yellow-300 text-black py-2 rounded shadow-md hover:bg-yellow-400">Amarillo</button>
+        <button onclick="abrirFormulario('Verde')" class="bg-green-500 text-white py-2 rounded shadow-md hover:bg-green-600">Verde</button>
+        <button onclick="abrirFormulario('Azul')" class="bg-blue-500 text-white py-2 rounded shadow-md hover:bg-blue-600">Azul</button>
+        <button onclick="abrirFormulario('Negro')" class="bg-black text-white py-2 rounded shadow-md hover:bg-gray-800">Negro</button>
+        <button onclick="abrirFormulario('Blanco')" class="bg-white text-black py-2 rounded shadow-md border hover:bg-gray-100">Blanco</button>
+        <button onclick="abrirFormulario('Rosa')" class="bg-pink-400 text-white py-2 rounded shadow-md hover:bg-pink-500">Rosa</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-pink-700 text-center p-4 text-sm text-white mt-8">
+    © 2025 RAVEN7 - Todos los derechos reservados
+  </footer>
+
+  <!-- Modal formulario -->
+  <div id="modalFormulario" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative">
+      <button onclick="cerrarFormulario()" class="absolute top-3 right-3 text-gray-600 hover:text-pink-600 text-xl font-bold">&times;</button>
+      <h2 class="text-2xl font-bold text-pink-700 mb-4 text-center">Registro en RAVEN7</h2>
+
+      <!-- FORMULARIO CON FORMESPREE -->
+      <form id="formRegistro" action="https://formspree.io/f/xblydlna" method="POST" class="space-y-4">
+        <input type="hidden" id="colorSeleccionado" name="color" value="" />
+        <div>
+          <label class="block font-semibold mb-1" for="nombre">Nombre:</label>
+          <input id="nombre" name="nombre" type="text" required class="w-full border border-gray-300 rounded px-3 py-2" />
+        </div>
+        <div>
+          <label class="block font-semibold mb-1" for="edad">Edad:</label>
+          <input id="edad" name="edad" type="number" min="10" max="100" required class="w-full border border-gray-300 rounded px-3 py-2" />
+        </div>
+        <div>
+          <label class="block font-semibold mb-1" for="rol">Rol (Líder, Apoyo, Franco, Rusher, etc.):</label>
+          <input id="rol" name="rol" type="text" required class="w-full border border-gray-300 rounded px-3 py-2" />
+        </div>
+        <div>
+          <label class="block font-semibold mb-1" for="idJugador">ID del jugador:</label>
+          <input id="idJugador" name="idJugador" type="text" required class="w-full border border-gray-300 rounded px-3 py-2" />
+        </div>
+        <div>
+          <label class="block font-semibold mb-1" for="contacto">WhatsApp:</label>
+          <input id="contacto" name="contacto" type="text" required class="w-full border border-gray-300 rounded px-3 py-2" />
+        </div>
+        <button type="submit" class="w-full bg-pink-600 text-white font-bold py-2 rounded hover:bg-pink-700 transition">Enviar Registro</button>
+      </form>
+
+      <div id="mensajeExito" class="hidden mt-4 text-center text-green-600 font-semibold">¡Gracias! Tu registro fue enviado.</div>
+    </div>
+  </div>
+
+  <script>
+    function abrirFormulario(color) {
+      document.getElementById('colorSeleccionado').value = color;
+      document.getElementById('modalFormulario').classList.remove('hidden');
+      document.getElementById('mensajeExito').classList.add('hidden');
+      document.getElementById('formRegistro').reset();
+    }
+
+    function cerrarFormulario() {
+      document.getElementById('modalFormulario').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
+
+
